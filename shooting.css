@@ -1,0 +1,20 @@
+body {
+  background-color: #111;
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #aaa;
+}
+
+#gameCanvas {
+  background-color: #000;
+  border: 2px solid #444;
+  display: block;
+  margin: 0 auto;
+}
