@@ -105,7 +105,7 @@ function showNameInput() {
       <button id="skipBtn"
         style="width:100%; padding:8px; background:transparent; color:#888; border:1px solid #333;
                border-radius:8px; font-size:13px; cursor:pointer;">
-        登録しないで終わる
+        登録しない
       </button>
     </div>
   `;
@@ -165,9 +165,15 @@ function showRetry(ranking, myName, myScore) {
       <a href="ranking.html" style="display:block; color:#aaf; font-size:14px; margin-bottom:16px;">ランキングを見る</a>
       <button id="retryBtn"
         style="width:100%; padding:10px; background:transparent; color:#fff; border:1px solid #444;
-               border-radius:8px; font-size:15px; cursor:pointer;">
+               border-radius:8px; font-size:15px; cursor:pointer; margin-bottom:8px;">
         もう一度プレイ
       </button>
+      <a href="index.html"
+        style="display:block; width:100%; padding:10px; background:transparent; color:#888;
+               border:1px solid #333; border-radius:8px; font-size:13px; text-align:center;
+               text-decoration:none;">
+        メニューに戻る
+      </a>
     </div>
   `;
   document.body.appendChild(overlay);
