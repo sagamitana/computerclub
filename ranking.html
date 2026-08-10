@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ランキング</title>
+  <link href="style.css" rel="stylesheet">
+  <style>
+    .ranking-section {
+      margin-bottom: 32px;
+    }
+    .ranking-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #4af0c8;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #2a2a3a;
+    }
+    .ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .ranking-table th {
+      text-align: left;
+      color: #888;
+      padding: 6px 8px;
+      border-bottom: 1px solid #2a2a3a;
+      font-weight: normal;
+    }
+    .ranking-table td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #1a1a2a;
+    }
+    .rank-1 { color: #ffd700; font-weight: bold; }
+    .rank-2 { color: #c0c0c0; font-weight: bold; }
+    .rank-3 { color: #cd7f32; font-weight: bold; }
+    .loading { color: #888; font-size: 14px; text-align: center; padding: 20px; }
+    .unit { font-size: 11px; color: #888; margin-left: 2px; }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <a href="index.html" class="back-btn">‹ 戻る</a>
+    <h2>ランキング</h2>
+  </div>
+
+  <div class="page-content">
+
+    <!-- シューティングランキング -->
+    <div class="ranking-section">
+      <div class="ranking-title">🚀 シューティングゲーム</div>
+      <div id="ranking-shooting"><p class="loading">読み込み中…</p></div>
+    </div>
+
+    <!-- パズルランキング -->
+    <div class="ranking-section">
+      <div class="ranking-title">🧩 8パズル</div>
+      <div id="ranking-puzzle"><p class="loading">読み込み中…</p></div>
+    </div>
+
+    <!-- クイズランキング -->
+    <div class="ranking-section">
+      <div class="ranking-title">❓ tanaクイズ</div>
+      <div id="ranking-quiz"><p class="loading">読み込み中…</p></div>
+    </div>
+
+  </div>
+
+  <script>
+    // ランキングデータを取得するサーバーのURL
+    const SERVER = "https://osamu.my.coocan.jp/bunkasai/ranking.php";
+
+    // 各ゲームのランキングを取得して表示する
+    loadRanking("shooting", "ranking-shooting", "点");
+    loadRanking("puzzle",   "ranking-puzzle",   "手");
+    loadRanking("quiz",     "ranking-quiz",     "点");
+
+    // ランキングを取得して表示する関数
+    function loadRanking(game, elementId, unit) {
+      // サーバーにGETリクエストを送る
+      fetch(SERVER + "?game=" + game)
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          const el = document.getElementById(elementId);
+
+          // データが空の場合
+          if (!data.ranking || data.ranking.length === 0) {
+            el.innerHTML = "<p class='loading'>まだ記録がありません</p>";
+            return;
+          }
+
+          // テーブルを作成する
+          let html = "<table class='ranking-table'>";
+          html += "<tr><th>順位</th><th>名前</th><th>スコア</th><th>日時</th></tr>";
+
+          data.ranking.forEach(function(r) {
+            // 1〜3位は色を変える
+            const rankClass = r.rank <= 3 ? " class='rank-" + r.rank + "'" : "";
+            html += "<tr>";
+            html += "<td" + rankClass + ">" + r.rank + "位</td>";
+            html += "<td>" + r.name + "</td>";
+            html += "<td>" + r.score + "<span class='unit'>" + unit + "</span></td>";
+            html += "<td>" + r.date + "</td>";
+            html += "</tr>";
+          });
+
+          html += "</table>";
+          el.innerHTML = html;
+        })
+        .catch(function() {
+          // 通信エラーの場合
+          document.getElementById(elementId).innerHTML =
+            "<p class='loading'>データを取得できませんでした</p>";
+        });
+    }
+  </script>
+
+</body>
+</html>
