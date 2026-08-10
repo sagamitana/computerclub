@@ -138,7 +138,7 @@ function showNameInput() {
       <button id="skipBtn"
         style="width:100%; padding:8px; background:transparent; color:#888; border:1px solid #333;
                border-radius:8px; font-size:13px; cursor:pointer;">
-        登録しないで終わる
+        登録しない
       </button>
     </div>
   `;
@@ -196,12 +196,19 @@ function showRetry(ranking, myName, myScore) {
   const retryBtn = document.createElement("button");
   retryBtn.className   = "retry-btn";
   retryBtn.textContent = "もう一度チャレンジ";
+  retryBtn.style.marginBottom = "8px";
   retryBtn.addEventListener("click", function() {
     currentQ = 0;
     score    = 0;
     showQuestion();
   });
   choicesEl.appendChild(retryBtn);
+
+  const menuBtn = document.createElement("a");
+  menuBtn.href        = "index.html";
+  menuBtn.textContent = "メニューに戻る";
+  menuBtn.style.cssText = "display:block; color:#888; font-size:13px; text-align:center; margin-top:8px;";
+  choicesEl.appendChild(menuBtn);
 }
 
 // ===== 最初の問題を表示する =====
