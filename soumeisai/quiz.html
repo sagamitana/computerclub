@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tanaクイズ</title>
+  <link href="quiz.css" rel="stylesheet">
+</head>
+<body>
+  <!-- 戻るボタン -->
+  <div class="back-bar">
+    <a href="index.html" class="back-btn">‹ メニューに戻る</a>
+  </div>
+
+  <h1>tanaクイズ</h1>
+
+  <!-- 問題番号の表示 -->
+  <p id="progress">問題 1 / 5</p>
+
+  <!-- 問題文の表示 -->
+  <div id="question"></div>
+
+  <!-- 選択肢ボタンが入る場所 -->
+  <div id="choices"></div>
+
+  <!-- 正解・不正解のフィードバック -->
+  <div id="feedback"></div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>

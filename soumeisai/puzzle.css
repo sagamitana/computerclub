@@ -1,0 +1,72 @@
+/* ページ全体のリセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ページ全体の背景と配置 */
+body {
+  background-color: #111;
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+/* 戻るボタンのバー */
+.back-bar {
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+/* 戻るボタンのスタイル */
+.back-btn {
+  color: #4af0c8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* タイトル */
+h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* 移動回数の表示 */
+#moves {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 12px;
+}
+
+/* キャンバスを中央に配置 */
+#puzzleCanvas {
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  touch-action: none;
+}
+
+/* メッセージ表示 */
+#msg {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #4af0c8;
+  min-height: 24px;
+}
+
+/* シャッフルボタン */
+#shuffleBtn {
+  margin-top: 14px;
+  padding: 10px 28px;
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #444;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 15px;
+}

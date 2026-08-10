@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>8パズル</title>
+  <link href="puzzle.css" rel="stylesheet">
+</head>
+<body>
+  <!-- 戻るボタン -->
+  <div class="back-bar">
+    <a href="index.html" class="back-btn">‹ メニューに戻る</a>
+  </div>
+
+  <h1>8パズル</h1>
+
+  <!-- 移動回数の表示 -->
+  <p id="moves">移動回数：0</p>
+
+  <!-- パズルを描画するキャンバス -->
+  <canvas id="puzzleCanvas"></canvas>
+
+  <!-- メッセージ表示（クリアなど） -->
+  <p id="msg">シャッフルしてスタート！</p>
+
+  <!-- シャッフルボタン -->
+  <button id="shuffleBtn">シャッフル</button>
+
+  <script src="puzzle.js"></script>
+</body>
+</html>
