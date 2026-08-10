@@ -87,6 +87,22 @@ main {
   background: #1a1a2e;
 }
 
+.menu-item.greeting {
+  border-color: #f6a06e;
+}
+
+.menu-item.greeting:active {
+  background: #1e1510;
+}
+
+.menu-item.rule {
+  border-color: #4af0c8;
+}
+
+.menu-item.rule:active {
+  background: #0f1e1a;
+}
+
 .menu-item.highlight {
   border-color: var(--accent2);
 }
